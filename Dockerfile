@@ -7,7 +7,7 @@ RUN npm run build
 
 # Deployment
 FROM nginx:1.26-perl
-COPY --from=build /app/deployment/nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /app/deployment/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist/application-app/browser /usr/share/nginx/html
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]nginx
+CMD ["nginx", "-g", "daemon off;"]
