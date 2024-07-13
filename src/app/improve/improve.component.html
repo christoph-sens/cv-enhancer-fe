@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Get enhancement suggestions for your CV</h1>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="cv" class="form-label">Enter your CV:</label>
+      <textarea id="cv" formControlName="cv" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit your data</button>
+  </form>
+
+  <div class="mb-3 mt-3" *ngIf="response$ | async as response">
+    <h3 class="mb-3">Your enhanced CV:</h3>
+    <div class="mb-3">{{ response?.message }}</div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Compare your CV with a vacancy and get feedback for enhancement</h1>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="cv" class="form-label">Enter your CV:</label>
+      <textarea id="cv" formControlName="cv" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="vacancy" class="form-label">Enter the vacancy you want to apply for:</label>
+      <textarea id="vacancy" formControlName="vacancy" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit your data</button>
+  </form>
+
+ <div class="mb-3 mt-3" *ngIf="response$ | async as response">
+    <h3 class="mb-3">Your feedback:</h3>
+    <div class="mb-3">{{ response?.message }}</div>
+  </div>
+</div>
